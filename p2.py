@@ -50,8 +50,21 @@ class linkedList:
             temp.setNext(None)
 
     def remove(self, item):
-        pass
-            
+        current = self.head
+        previous = None
+        found = False
+        while not found:
+            if current.data == item:
+                found = True
+            else:
+                previous = current
+                current = current.getNext()
+        
+        if previous == None:
+            self.head = current.getNext()
+        else:
+            previous.setNext(current.getNext())
+
     def search(self, item):
         current = self.head
         found = False
@@ -81,20 +94,15 @@ l = linkedList()
 # l.add_first(1)
 
 l.add_larst(1)
-l.add_larst(2)
-l.add_larst(3)
-l.add_larst(4)
-l.add_larst(5)
-
-
+l.remove(1)
 
 # print(l.is_empty())
-# print(l.lengh())
+print(l.lengh())
 
-# l.print_all()
+l.print_all()
 
-print(l.search(3))
-print(l.search(6))
+# print(l.search(3))
+# print(l.search(6))
 
 
 
