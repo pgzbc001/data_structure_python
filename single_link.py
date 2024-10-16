@@ -1,9 +1,12 @@
 class Node():
-    """node"""
+    """定义node类"""
+
+    """node属性初始化"""
     def __init__(self, data) -> None:
         self.data = data
         self.next = None
 
+    """data, next setter getter实现"""
     def getData(self):
         return self.data
     
@@ -18,13 +21,18 @@ class Node():
 
 
 class linkedList:
+    """定义单链表"""
+
+    """单链表属性初始化"""
     def __init__(self) -> None:
         self.head = None
     
     def is_empty(self):
+        """判断链表是否为空"""
         return self.head == None
     
     def lengh(self):
+        """获取链表的长度"""
         current = self.head
         count = 0
         while current != None:
@@ -33,11 +41,13 @@ class linkedList:
         return count
 
     def add_first(self, item):
+        """头节点处插入节点"""
         temp = Node(item)
         temp.setNext(self.head)
         self.head = temp
 
     def add_larst(self, item):
+        """尾节点处插入节点"""
         if self.is_empty():
             self.add_first(item)
         else:
@@ -50,6 +60,7 @@ class linkedList:
             temp.setNext(None)
 
     def remove(self, item):
+        """删除指定节点"""
         current = self.head
         previous = None
         found = False
@@ -66,6 +77,7 @@ class linkedList:
             previous.setNext(current.getNext())
 
     def search(self, item):
+        """查询节点数据"""
         current = self.head
         found = False
 
@@ -78,6 +90,7 @@ class linkedList:
         return found
 
     def print_all(self):
+        """遍历所有节点打印数据"""
         current = self.head
         while current != None:
             print(current.data)
